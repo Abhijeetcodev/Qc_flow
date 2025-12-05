@@ -1,0 +1,14 @@
+import React from 'react';
+import { AppProvider } from './context/AppContext';
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+
+export default function App() {
+  return (
+    <AppProvider>
+      <Layout>
+         <Dashboard />
+      </Layout>
+    </AppProvider>
+  );
+}
