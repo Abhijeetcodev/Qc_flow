@@ -1,16 +1,132 @@
-# React + Vite
+QC Workspace – Functional Prototype (V1)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a lightweight functional prototype of the Document Quality Control (QC) Workspace designed for the DeepLogic AI TPM assignment.
 
-Currently, two official plugins are available:
+The prototype demonstrates the core V1 flows for both Customer Users and Internal Ops, including:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Viewing problematic documents
 
-## React Compiler
+Editing extracted fields
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Retrying processing
 
-## Expanding the ESLint configuration
+Escalating issues to internal teams
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Resolving issues
+
+Persona-based RBAC preview
+
+Dynamic dashboard + detail panel
+
+Filters, search, and status updates
+
+This project is intentionally minimal, focusing on workflow, data structure, and clarity, not visual polish.
+
+📦 Features Implemented
+🔍 Dashboard (Customer + Internal Ops)
+
+Document list view
+
+Pipeline, error type, status, date received
+
+Search + filter bar
+
+Persona-specific sidebar menu
+
+📄 Detail Panel
+
+Error reason & extracted metadata display
+
+Edit, Retry, Escalate, Resolve actions
+
+Comment section (UI-level)
+
+🔄 Roles / Personas
+
+Switch between:
+
+Customer
+
+Internal Ops
+
+Each role sees:
+
+Different sidebar
+
+Different actions
+
+Different documents (customer-level scoping)
+
+⚙️ State & Logic
+
+In-memory task list (AppContext.jsx)
+
+Status updates reflected on the dashboard
+
+Role-based UI handling
+
+No backend required (mock data used)
+
+📁 Folder Structure
+src/
+├── components/
+│   ├── DemoControls.jsx
+│   ├── DetailPanel.jsx
+│   ├── Sidebar.jsx
+│   ├── StatusPill.jsx
+│   ├── TopControls.jsx
+│   └── Layout.jsx
+│
+├── context/
+│   └── AppContext.jsx
+│
+├── pages/
+│   └── Dashboard.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+
+🧪 Demo Data (Seed)
+
+The prototype uses structured seed data representing:
+
+multiple customers
+
+different pipelines
+
+multiple error types
+
+different statuses (New, Needs Review, Escalated, Resolved)
+
+Found in:
+src/context/AppContext.jsx
+
+▶️ Running Locally
+1. Clone Repo
+git clone <your-repo-url>
+cd qc-workspace
+
+2. Install Dependencies
+npm install
+
+3. Start Dev Server
+npm run dev
+
+
+Navigate to:
+👉 http://localhost:5173
+
+💡 Architecture Notes
+
+This is a front-end only prototype meant to simulate:
+
+API responses
+
+Real document lifecycle
+
+RBAC behaviours
+
+UI flows
+
+Backend endpoints (GET / PATCH / POST actions) are mocked via local state and simplified update functions.
